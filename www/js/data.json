@@ -1,0 +1,26 @@
+[
+  {
+    "name":"Enkel rum",
+    "img":"Enkel_rum",
+    "desc":"Vila ut efter en dag på stan före kvällens aktiviteter. Knoppar och galgar att hänga kläder på, samt låda under sängen för bagage. Varken skrivbord eller fåtölj på rummet, men vår stora lounge passar bra för jobb och möten.",
+    "price":"500", 
+    "capacity":"1"
+  }, 
+ {
+  "name":"Dubbel rum",
+  "img":"Dubbel_rum",
+  "desc":"Vila ut efter en dag på stan före kvällens aktiviteter. Knoppar och galgar att hänga kläder på, samt låda under sängen för bagage. Varken skrivbord eller fåtölj på rummet, men vår stora lounge passar bra för jobb och möten.",
+  "price":"700", 
+  "capacity":"2"
+
+  },
+  {
+    "name":"Familje rum",
+    "img":"Familje_rum",
+    "desc":"Vila ut efter en dag på stan före kvällens aktiviteter. Knoppar och galgar att hänga kläder på, samt låda under sängen för bagage. Varken skrivbord eller fåtölj på rummet, men vår stora lounge passar bra för jobb och möten.",
+    "price":"900", 
+    "capacity":"5"
+    }
+  
+]
+

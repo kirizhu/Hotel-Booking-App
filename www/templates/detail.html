@@ -1,0 +1,77 @@
+<ion-header-bar class="bar-royal">
+        <h1 class="title">HotelsBnB</h1>
+      </ion-header-bar>
+
+<ion-view>
+        <ion-content>
+                <ion-list>
+                        <ion-item ng-repeat="item in rooms | filter:{img:choosenroom}"
+                        class="item-thumbnail-left item-text-wrap">
+                          <img ng-src="img/{{item.img}}.jpg">
+                          <h3 name="roomname"  ng-model="data.roomname">{{item.name}}</h3>
+                          <h4 name="roomprice"  ng-model="data.roomprice" ng-init="data.roomprice=item.price">Pris {{item.price}}:- per dag</h4>
+                          <p> Max antal gäster {{item.capacity}}</p>
+                        </ion-item>
+                      </ion-list>
+                      <div ng-repeat="item in rooms | filter:{img:choosenroom}">
+                      <form ng-controller="ListCtrl" ng-submit="submit()" name="myForm" class="list list-inset">
+
+                        <label class="item item-input ">
+                            <span class="input-label">Boka från</span>
+                            <input type="date" ng-model="data.datefrom" name="datefrom" min="{{today}}" ng-blur="getbookdate()"
+                            required placeholder="Ange datum">
+                        </label>
+
+                        <label class="item item-input ">
+                            <span class="input-label">Boka till</span>
+                            <input type="date" ng-model="data.dateto" name="dateto" min="{{bookdate}}" ng-blur="confirm()" 
+                            required placeholder="Ange datum">
+                        </label>
+                            <div ng-show="myForm.Edate.$error.date" class="error">
+                                Ange ett datum som är över start datumet!
+                            </div>
+                            
+                            <label class="item item-input">
+                                <span class="input-label">Antal Gäster</span>
+                                    <input type="number" name="vuxna" required placeholder="Antal vuxna"
+                                     min="1" max="{{item.capacity}}" ng-model="data.vuxna">
+                                </label>
+
+                            <label class="item item-input">
+                                <span class="input-label">Antal Barn</span>
+                                    <input type="number" name="barn" required placeholder="Antal barn"
+                                     min="0" max="{{item.capacity - data.vuxna}}" ng-model="data.barn">
+                                </label>
+
+                        <label class="item item-input">
+                            <span class="input-label">Namn</span>
+                              <input type="text" name="name" required placeholder="Ange ditt namn"
+                              ng-model="data.name">
+                            </label> 
+
+                            <label class="item item-input">
+                                <span class="input-label">Telefon</span>
+                                  <input type="number" name="number" required placeholder="Ange ditt nummer"
+                                  ng-model="data.number">
+                                </label>   
+
+                              <label class="item item-input">
+                                <span class="input-label">Email</span>
+                                  <input type="email" name="email" required placeholder="Ange din Epost"
+                                  ng-model="data.email">
+                                  <div ng-show="myForm.email.$error.email" class="error">
+                                    Ange giltig e-postadress tack!
+                                  </div>
+                                </label>
+                                
+                                <label class="item item-input item-stacked-label" ng-model="data.days" ng-init="data.days=diffD">{{diffD}}</label>
+                                <label class="item item-input" ng-model="data.totPrice" ng-init="data.totPrice=totalPrice">
+                                   Pris {{(item.price-0) * (diffDate(data.datefrom, data.dateto)-0)}}  kr
+                            </label>
+                            
+                            <input type="submit" class="button button-block button-positive" ng-disabled="myForm.$invalid" value="Boka">
+                              </form>
+
+                            </div>
+           </ion-content>
+        </ion-view>

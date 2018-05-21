@@ -1,0 +1,24 @@
+<ion-pane ng-controller="ListCtrl">
+        <ion-header-bar class="bar-royal">
+          <h1 class="title">HotelsBnB</h1>
+        </ion-header-bar>
+        <div class="bar bar-subheader item-input-inset bar-light">
+          <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+              <input type="search" ng-model="query" placeholder="Search">
+          </label>
+        </div>
+        <ion-content class="has-subheader">
+          <ion-list>
+            <ion-item ng-repeat="item in rooms | filter:query"
+            class="item-thumbnail-left item-text-wrap" ng-href="#/tab/list/{{item.img}}">
+              <img ng-src="img/{{item.img}}.jpg">
+              <h2>{{item.name}}</h2>
+              <h3>{{item.price}}:-</h3>
+              <p>{{item.desc | limitTo:100}} 
+                {{item.desc.length >110 ? '&hellip;' : ''}}
+              </p>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-pane>

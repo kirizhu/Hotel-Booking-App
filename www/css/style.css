@@ -1,0 +1,19 @@
+/* Empty. Add your own CSS if you like */
+.splash{
+    background: url("../img/mysplash.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  .branding{
+    width: 50%;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .rooms{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom: 20px;
+  }
